@@ -1,0 +1,47 @@
+
+plugins {
+    id "java"
+    id "org.jetbrains.intellij" version "1.17.4"
+    id "org.jetbrains.grammarkit" version "2022.3.2.2"
+}
+
+group = "com.idcom4.idasmsyntaxhighlight"
+version = "1.0.0"
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+
+}
+
+sourceSets.main {
+    java {
+        setSrcDirs(['src/main/java'])
+    }
+    resources {
+        setSrcDirs(['src/main/resources'])
+    }
+}
+
+intellij {
+    version = "2024.2"
+    type = "IC" // IC = IntelliJ Community
+    plugins = ["java"]
+}
+
+tasks {
+    runIde {
+        jvmArgs('-Xmx2G')
+    }
+    generateParser {
+        sourceFile.set(file("src/main/grammar/IdASM.bnf"))
+        targetRootOutputDir.set(file("src/main/java"))
+        pathToParser.set("com.idcom4.idasmsyntaxhighlight.parser.IdASMParser")
+        pathToPsiRoot.set("com.idcom4.idasmsyntaxhighlight.parser.psi")
+        purgeOldFiles.set(true)
+    }
+}

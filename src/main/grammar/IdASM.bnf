@@ -1,0 +1,20 @@
+{
+  parserClass="com.idcom4.idasmsyntaxhighlight.IdASMParser"
+  extends="com.intellij.lang.parser.GeneratedParserUtilBase"
+  psiPackage="com.idcom4.idasmsyntaxhighlight.psi"
+  elementTypeHolderClass="com.idcom4.idasmsyntaxhighlight.psi.IdASMTypes"
+  elementTypeClass="com.intellij.psi.tree.IElementType"
+  tokenTypeClass="com.intellij.psi.TokenType"
+}
+
+file ::= function*
+
+function ::= "func" LABEL "{" instruction* retInstruction "}"
+
+retInstruction ::= "ret
+
+instruction ::= mnemonic operand ("," operand)*
+
+mnemonic ::= "MOV" | "ADD" | "SUB"
+
+operand ::= REGISTER | NUMBER | IDENTIFIER

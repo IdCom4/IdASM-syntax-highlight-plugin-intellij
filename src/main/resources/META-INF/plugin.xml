@@ -1,0 +1,34 @@
+<idea-plugin>
+    <id>com.idcom4.idasmsyntaxhighlight</id>
+    <name>IdASM syntax highlight</name>
+    <version>1.0</version>
+    <vendor email="cornuau.idriss@gmail.com">IdCom4</vendor>
+
+
+    <description><![CDATA[
+        Support for IdASM files (.idasm) with syntax highlighting.
+    ]]></description>
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType
+                name="IdASM"
+                language="IdASM"
+                extensions="idasm"
+                implementationClass="com.idcom4.idasmsyntaxhighlight.IdASMFileType"
+        />
+        <lang.syntaxHighlighterFactory
+                language="IdASM"
+                implementationClass="com.idcom4.idasmsyntaxhighlight.IdASMSyntaxHighlighterFactory"
+        />
+        <spellchecker.support
+                language="IdASM"
+                implementationClass="com.idcom4.idasmsyntaxhighlight.IdASMSpellCheckingStrategy"
+        />
+
+        <lang.parserDefinition
+                language="IdASM"
+                implementationClass="com.idcom4.idasmsyntaxhighlight.IdASMParserDefinition"
+        />
+    </extensions>
+</idea-plugin>
