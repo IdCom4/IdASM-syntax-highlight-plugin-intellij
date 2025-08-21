@@ -14,4 +14,4 @@ This plugin adds Intellij syntax highlighting support for the IdASM language.
 ### Roadmap
 
 - add a parser to detect contextual errors and give insightful messages
-- redo the lexer, the current one 
+- redo the lexer, the current one has been quickly hacked together to go easy on my visual sanity
